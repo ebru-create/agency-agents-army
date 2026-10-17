@@ -110,6 +110,7 @@ def validate(data):
         review_id = publication.get("review_task")
         review = by_id.get(review_id, {}) if nonempty(review_id) else {}
         require(review.get("status") == "verified" and review.get("revision") == publication.get("revision"), "publication requires verified review of exact revision")
+        require(review.get("owner") == "design-brand-guardian", "publication review must belong to Brand Guardian")
         approval = publication.get("approval")
         if not isinstance(approval, dict):
             return errors + ["publication needs explicit approval record"]
@@ -119,6 +120,8 @@ def validate(data):
             require(nonempty(publication.get(key)), f"publication needs {key}")
         require(nonempty(approval.get("user_evidence")), "approval needs user instruction evidence")
         require(publication.get("action") in ("publish", "schedule"), "publication action must be publish or schedule")
+        if state == "scheduled":
+            require(publication.get("action") == "schedule", "scheduled publication requires a schedule action")
         cap = publication.get("spend_cap")
         require(type(cap) in (int, float) and 0 <= cap < float("inf"), "spend_cap must be finite and nonnegative")
         try:

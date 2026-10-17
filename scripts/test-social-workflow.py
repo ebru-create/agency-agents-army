@@ -35,6 +35,19 @@ class WorkflowTests(unittest.TestCase):
     def test_reviewed_approved_package_is_ready(self):
         self.assertEqual([], MODULE.validate(self.ready()))
 
+    def test_platform_adaptation_cannot_replace_brand_review(self):
+        data = self.ready()
+        data["publication"]["review_task"] = "adapt"
+        self.assertTrue(MODULE.validate(data))
+
+    def test_publish_action_cannot_be_reported_as_scheduled(self):
+        data = self.ready()
+        pub = data["publication"]
+        pub.update(status="scheduled", action="publish")
+        pub["approval"]["action"] = "publish"
+        pub["receipt"] = dict(revision=pub["revision"], account=pub["account"], action="publish", platform_id="post-1", executed_at="2026-11-02T12:00:00+03:00", evidence="receipt-1", outcome="scheduled")
+        self.assertTrue(MODULE.validate(data))
+
     def test_receipt_is_required_and_must_match(self):
         data = self.ready()
         pub = data["publication"]
