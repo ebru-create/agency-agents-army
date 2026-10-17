@@ -4,6 +4,8 @@
 
 ---
 
+Use the [orchestrator task state contract](../../specialized/agents-orchestrator.md#task-state-contract) for all templates: three implementation submissions total, including the initial submission. Count QA rechecks and spawn failures separately. A verdict applies only to its recorded artifact revision; changing upstream inputs invalidates affected downstream verdicts. Continue independent eligible work, but keep blocked dependencies pending and never report successful completion with required work unresolved.
+
 ## 1. Standard Handoff Template
 
 Use for any agent-to-agent work transfer.
@@ -18,6 +20,8 @@ Use for any agent-to-agent work transfer.
 | **To** | [Agent Name] ([Division]) |
 | **Phase** | Phase [N] — [Phase Name] |
 | **Task Reference** | [Task ID from Sprint Prioritizer backlog] |
+| **Artifact Revision** | [Immutable revision/version under review] |
+| **Dependency IDs / States** | [IDs and verified/pending/blocked states] |
 | **Priority** | [Critical / High / Medium / Low] |
 | **Timestamp** | [YYYY-MM-DDTHH:MM:SSZ] |
 
@@ -60,7 +64,8 @@ Use when Evidence Collector or other QA agent approves a task.
 | **Task Description** | [Description] |
 | **Developer Agent** | [Agent Name] |
 | **QA Agent** | [Agent Name] |
-| **Attempt** | [N] of 3 |
+| **Implementation Submission** | [N] of 3 total, initial included |
+| **Artifact Revision** | [Exact reviewed revision] |
 | **Timestamp** | [YYYY-MM-DDTHH:MM:SSZ] |
 
 ## Verdict: PASS
@@ -84,7 +89,7 @@ Use when Evidence Collector or other QA agent approves a task.
 [Any observations, minor suggestions for future improvement, or positive callouts]
 
 ## Next Action
-→ Agents Orchestrator: Mark task complete, advance to next task in backlog
+→ Agents Orchestrator: Mark this revision verified and unblock only dependents whose inputs are all verified
 ```
 
 ---
@@ -103,7 +108,8 @@ Use when Evidence Collector or other QA agent rejects a task.
 | **Task Description** | [Description] |
 | **Developer Agent** | [Agent Name] |
 | **QA Agent** | [Agent Name] |
-| **Attempt** | [N] of 3 |
+| **Implementation Submission** | [N] of 3 total, initial included |
+| **Artifact Revision** | [Exact reviewed revision] |
 | **Timestamp** | [YYYY-MM-DDTHH:MM:SSZ] |
 
 ## Verdict: FAIL
@@ -137,8 +143,8 @@ Use when Evidence Collector or other QA agent rejects a task.
 **For Developer Agent**:
 1. Fix ONLY the issues listed above
 2. Do NOT introduce new features or changes
-3. Re-submit for QA when all issues are addressed
-4. This is attempt [N] of 3 maximum
+3. If this was submission 1 or 2, revise and submit for QA
+4. If this was submission 3, block and escalate; do not submit again automatically
 
 **If attempt 3 fails**: Task will be escalated to Agents Orchestrator
 ```
@@ -147,7 +153,7 @@ Use when Evidence Collector or other QA agent rejects a task.
 
 ## 4. Escalation Report
 
-Use when a task exceeds 3 retry attempts.
+Use when the third implementation submission fails QA; do not make a fourth submission without a recorded scope/approach decision.
 
 ```markdown
 # NEXUS Escalation Report 🚨
@@ -351,7 +357,11 @@ Use during incident response.
 | Assigning work to another agent | Standard Handoff (#1) |
 | QA approves a task | QA PASS (#2) |
 | QA rejects a task | QA FAIL (#3) |
-| Task exceeds 3 retries | Escalation Report (#4) |
+| Third implementation submission fails | Escalation Report (#4) |
 | Moving between phases | Phase Gate Handoff (#5) |
 | End of sprint | Sprint Handoff (#6) |
 | System incident | Incident Handoff (#7) |
+
+## 8. QA Coverage Gap — UNTESTED
+
+Use when a required tool, asset, input or permission is unavailable. Missing evidence is not a reproducible defect and cannot count as PASS. Record task ID, current artifact revision, missing acceptance-criterion coverage, missing capability, owner, and next step. Keep the implementation submission count unchanged when only re-running QA. Block the affected task and its dependents; continue eligible independent work. Never pre-fill a PASS template for untested scope.

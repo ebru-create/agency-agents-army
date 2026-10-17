@@ -10,6 +10,11 @@ These examples answer the question: *"What does it actually look like when the f
 
 ## Contents
 
+### [workflow-social-media-starter.md](./workflow-social-media-starter.md)
+
+An authored, fictional five-agent campaign showing a shared brand brief, Turkish carousel copy, platform adaptation, scoped brand review, pending user approval, and a measurement plan. Includes a [validatable draft snapshot](social-media-starter/campaign.json). This example records no live agent run or publishing activity.
+
+
 ### [nexus-spatial-discovery.md](./nexus-spatial-discovery.md)
 
 **What:** A complete product discovery exercise where 8 agents worked in parallel to evaluate a software opportunity and produce a unified plan.

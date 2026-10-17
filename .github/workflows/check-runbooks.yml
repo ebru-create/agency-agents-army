@@ -19,3 +19,12 @@ jobs:
         run: |
           chmod +x scripts/check-runbooks.sh
           ./scripts/check-runbooks.sh
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate social campaign gates and example
+        run: |
+          python3 scripts/test-social-workflow.py
+          python3 scripts/check-social-workflow.py examples/social-media-starter/campaign.json

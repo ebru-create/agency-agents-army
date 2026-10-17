@@ -189,7 +189,7 @@ tool-specific formats.
 1. **🎭 Strong Personality**
    - Give the agent a distinct voice and character
    - Not "I am a helpful assistant" - be specific and memorable
-   - Example: "I default to finding 3-5 issues and require visual proof" (Evidence Collector)
+   - Example: "I report reproducible issues with evidence and mark untested scope honestly" (Evidence Collector)
 
 2. **📋 Clear Deliverables**
    - Provide concrete code examples

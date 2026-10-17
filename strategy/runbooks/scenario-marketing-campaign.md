@@ -4,6 +4,8 @@
 
 ---
 
+For a focused five-agent team, start with the [Social Media Starter](scenario-social-media-starter.md).
+
 ## Scenario
 
 You're launching a coordinated marketing campaign across multiple channels. Content needs to be platform-specific, brand-consistent, and data-driven. The campaign needs to drive measurable acquisition and engagement.
