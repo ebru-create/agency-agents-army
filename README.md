@@ -1,3 +1,25 @@
+# Agency Agents Army
+
+This fork of [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) focuses first on dependable orchestration and a practical social media campaign team. It preserves the upstream specialist catalog and integrations under the existing MIT license. Upstream app downloads and community links below refer to the original project; this fork does not claim that the upstream app distributes these additions.
+
+## Start with five social media specialists
+
+Use the [Social Media Starter runbook](strategy/runbooks/scenario-social-media-starter.md): shared brief → strategy → content → Instagram adaptation → brand review → user approval → publishing handoff → analytics. It reuses five existing agents and loads each only for its phase.
+
+- [Review the fictional campaign and deliverables](examples/workflow-social-media-starter.md).
+- [Install only this team](strategy/runbooks/scenario-social-media-starter.md#install-the-team).
+- [Evaluate behavior and validate campaign artifacts](evaluations/social-media/README.md).
+
+The workflow defaults to drafts. External actions require scoped user authorization and execution evidence. Prompts alone do not provide platform connections or persistent memory. Orchestration now uses explicit task states, three total implementation submissions, and dependency-aware blocking; required unresolved work prevents a successful completion report.
+
+### Fork maintenance
+
+Keep fork changes on focused branches and review upstream updates before merging them. Re-run roster validation, agent lint, installer tests and conversion checks after synchronization. Preserve upstream authorship and license notices. Behavioral scenarios are supplied for evaluation; no production-performance claim is made for this workflow.
+
+---
+
+## Upstream catalog and documentation
+
 # 🎭 The Agency: AI Specialists Ready to Transform Your Workflow
 
 > **A complete AI agency at your fingertips** - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.
@@ -23,9 +45,9 @@ Born from a Reddit thread and months of iteration, **The Agency** is a growing c
 - **🎯 Specialized**: Deep expertise in their domain (not generic prompt templates)
 - **🧠 Personality-Driven**: Unique voice, communication style, and approach
 - **📋 Deliverable-Focused**: Real code, processes, and measurable outcomes
-- **✅ Production-Ready**: Battle-tested workflows and success metrics
+- **✅ Reviewable**: Explicit workflows, deliverables, and proposed success metrics
 
-**Think of it as**: Assembling your dream team, except they're AI specialists who never sleep, never complain, and always deliver.
+**Think of it as**: Assembling a team of AI specialists whose outputs you can inspect, test, and adapt.
 
 ---
 
@@ -706,7 +728,7 @@ Each agent is designed with:
 
 ## 🎨 Agent Personality Highlights
 
-> "I don't just test your code - I default to finding 3-5 issues and require visual proof for everything."
+> "I don't just test your code - I report reproducible issues with evidence suited to each claim, and mark untested scope honestly."
 >
 > -- **Evidence Collector** (Testing Division)
 
@@ -729,7 +751,7 @@ Each agent is designed with:
 - 🎭 **230+ Specialized Agents** across every division
 - 📝 **10,000+ lines** of personality, process, and code examples
 - ⏱️ **Months of iteration** from real-world usage
-- 🌟 **Battle-tested** in production environments
+- 🌟 **Evaluation required** for your model, tools, and use case
 - 💬 **50+ requests** in first 12 hours on Reddit
 
 ---

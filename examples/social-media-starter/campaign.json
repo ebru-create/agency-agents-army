@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "campaign_id": "studio-intro",
+  "brief_revision": "brief-v1",
+  "status": "blocked",
+  "tasks": [
+    {
+      "id": "strategy",
+      "owner": "marketing-social-media-strategist",
+      "required": true,
+      "dependencies": [],
+      "status": "verified",
+      "attempts": 1,
+      "revision": "strategy-v1",
+      "qa_revision": "strategy-v1",
+      "qa": "PASS",
+      "evidence": [
+        "examples/workflow-social-media-starter.md (authored example, scoped planning/copy only)"
+      ],
+      "brief_revision": "brief-v1",
+      "dependency_revisions": {}
+    },
+    {
+      "id": "content",
+      "owner": "marketing-content-creator",
+      "required": true,
+      "dependencies": [
+        "strategy"
+      ],
+      "status": "verified",
+      "attempts": 1,
+      "revision": "intro-carousel-v1",
+      "qa_revision": "intro-carousel-v1",
+      "qa": "PASS",
+      "evidence": [
+        "examples/workflow-social-media-starter.md (authored example, scoped planning/copy only)"
+      ],
+      "brief_revision": "brief-v1",
+      "dependency_revisions": {
+        "strategy": "strategy-v1"
+      }
+    },
+    {
+      "id": "adapt",
+      "owner": "marketing-instagram-curator",
+      "required": true,
+      "dependencies": [
+        "content"
+      ],
+      "status": "verified",
+      "attempts": 1,
+      "revision": "intro-carousel-v2",
+      "qa_revision": "intro-carousel-v2",
+      "qa": "PASS",
+      "evidence": [
+        "examples/workflow-social-media-starter.md (authored example, scoped planning/copy only)"
+      ],
+      "brief_revision": "brief-v1",
+      "dependency_revisions": {
+        "content": "intro-carousel-v1"
+      }
+    },
+    {
+      "id": "review",
+      "owner": "design-brand-guardian",
+      "required": true,
+      "dependencies": [
+        "adapt"
+      ],
+      "status": "blocked",
+      "attempts": 1,
+      "revision": "intro-carousel-v2",
+      "qa_revision": null,
+      "qa": "UNTESTED",
+      "evidence": [],
+      "blocker": "Final assets, rights, real account and profile CTA verification unavailable",
+      "brief_revision": "brief-v1",
+      "dependency_revisions": {
+        "adapt": "intro-carousel-v2"
+      }
+    },
+    {
+      "id": "analytics",
+      "owner": "support-analytics-reporter",
+      "required": true,
+      "dependencies": [],
+      "status": "verified",
+      "attempts": 1,
+      "revision": "measurement-v1",
+      "qa_revision": "measurement-v1",
+      "qa": "PASS",
+      "evidence": [
+        "examples/workflow-social-media-starter.md (authored example, scoped planning/copy only)"
+      ],
+      "brief_revision": "brief-v1",
+      "dependency_revisions": {}
+    }
+  ],
+  "publication": {
+    "status": "draft",
+    "review_task": "review",
+    "revision": "intro-carousel-v2",
+    "account": "@mavi-studio-demo",
+    "action": "schedule",
+    "scheduled_at": "2026-11-02T18:30:00+03:00",
+    "timezone": "Europe/Istanbul",
+    "spend_cap": 0,
+    "approval": null,
+    "receipt": null
+  }
+}

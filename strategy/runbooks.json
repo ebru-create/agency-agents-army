@@ -170,6 +170,27 @@
           ]
         }
       ]
+    },
+    {
+      "slug": "social-media-starter",
+      "title": "Five-Agent Social Media Campaign",
+      "mode": "NEXUS-Micro",
+      "duration": "One campaign cycle",
+      "summary": "Brief to reviewed social content and evidence-based analysis, with explicit approval before publishing.",
+      "doc": "strategy/runbooks/scenario-social-media-starter.md",
+      "roster": [
+        {
+          "group": "Social Media Starter",
+          "activation": "per phase; strategist coordinates",
+          "agents": [
+            "marketing-social-media-strategist",
+            "marketing-content-creator",
+            "marketing-instagram-curator",
+            "design-brand-guardian",
+            "support-analytics-reporter"
+          ]
+        }
+      ]
     }
   ]
 }
